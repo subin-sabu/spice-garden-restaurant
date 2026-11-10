@@ -1,0 +1,107 @@
+.discovery-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 370px;
+  margin-top: 22px;
+  overflow: hidden;
+  border-radius: 15px;
+  color: #fffbef;
+  background: #16281f;
+}
+.discovery-hero-photo {
+  position: absolute;
+  z-index: -2;
+  inset: 0 0 0 auto;
+  width: 75%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 55%;
+}
+.discovery-hero::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, #16281f 18%, #16281ff0 35%, #16281f85 59%, #16281f10 91%);
+  content: "";
+}
+.hero-copy { width: min(100%, 640px); padding: 36px clamp(25px, 5vw, 66px); }
+.discovery-hero .eyebrow { color: var(--gold); }
+.discovery-hero h1 { margin: 12px 0; font: 400 clamp(49px, 6.8vw, 90px)/.96 var(--serif); letter-spacing: -.067em; }
+.intro {
+  display: -webkit-box;
+  max-width: 375px;
+  overflow: hidden;
+  color: #f5ecda;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.hero-price { margin-top: 13px; color: var(--gold); font-weight: 750; }
+.discovery-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: 17px; }
+.discovery-action, .menu-jump { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; font-size: 13px; font-weight: 750; }
+.discovery-action { padding: 8px 12px; border: 1px solid var(--gold); border-radius: 6px; color: #222a20; background: var(--gold); }
+.discovery-action:hover { background: #f4d5a2; }
+.menu-jump { padding: 0 2px; }
+.menu-jump:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.discovery-picks { margin: 36px 0 34px; }
+.discovery-picks h2 { margin: 7px 0 14px; font: 400 clamp(35px, 5vw, 49px)/1 var(--serif); letter-spacing: -.045em; }
+.picks-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.pick-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  background: var(--paper);
+  text-align: left;
+}
+.pick-card img { display: block; width: 100%; height: clamp(110px, 14vw, 178px); object-fit: cover; }
+.pick-card:hover { border-color: #a89573; }
+.pick-content { display: flex; flex: 1; align-items: center; justify-content: space-between; gap: 9px; padding: 12px 13px; }
+.pick-content strong { font: 700 23px/1.12 var(--serif); }
+.pick-note {
+  display: -webkit-box;
+  margin-top: 5px;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+#menu { scroll-margin-top: 82px; }
+.dish-unavailable, .dish-detail-price span { color: var(--muted); font-size: 12px; font-weight: 650; }
+.dish-detail-price { display: flex; align-items: baseline; gap: 12px; margin-top: 9px; font-size: 16px; font-weight: 750; }
+.dish-pairing { margin-top: 17px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--cream); }
+.dish-pairing h3 { color: var(--muted); font-size: 11px; font-weight: 750; }
+.dish-pairing .details-button { min-height: 39px; font-size: 15px; }
+.dish-pairing p { font-size: 13px; }
+
+@media (max-width: 620px) {
+  .discovery-hero { min-height: 315px; align-items: end; margin-top: 12px; border-radius: 11px; }
+  .discovery-hero-photo { width: 100%; object-position: center 38%; }
+  .discovery-hero::before { background: linear-gradient(0deg, #16281f 6%, #16281ff5 29%, #16281f72 68%, #16281f12 100%); }
+  .hero-copy { padding: 23px 16px 18px; }
+  .discovery-hero h1 { font-size: clamp(41px, 11vw, 60px); }
+  .intro { font-size: 14px; }
+  .discovery-picks { margin: 24px 0; }
+  .picks-grid {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(68%, 230px);
+    overflow-x: auto;
+    padding: 4px 4px 9px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+  }
+  .pick-card { scroll-snap-align: start; }
+  .pick-content strong { font-size: 20px; }
+  #menu { scroll-margin-top: 72px; }
+}
