@@ -37,10 +37,11 @@ export function DishCard({ item, index, onOpen }) {
         <p className="dish-price">{formatPrice(item.price_paise)}</p>
       </div>
       <div className="dish-bottom">
+        {!available && <span className="dish-unavailable">Unavailable</span>}
         <button className="details-button" type="button" onClick={onOpen} aria-label={`View dish: ${item.name}`}>
           View dish <Icon name="right" size={15} />
         </button>
-        {!available && <span className="dish-unavailable">Unavailable</span>}
+        
       </div>
     </article>
   );

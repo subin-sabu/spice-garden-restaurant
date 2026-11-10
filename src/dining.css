@@ -122,3 +122,8 @@ body:has(.dining-modal[open]) { overflow: hidden; }
   .dish-story, .gallery { padding-inline: 16px; }
   .modal-close { right: 10px; top: 10px; }
 }
+
+
+.dish-bottom .details-button {
+  margin-inline-start: auto;
+}
